@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('comprovantes', function (Blueprint $table) {
+        Schema::create('turmas', function (Blueprint $table) {
             $table->id();
-            $table->float('horas');
-            $table->string('atividade');
+            $table->integer('ano');
+
+            $table->foreignId('curso_id')->constrained()->onDelete('cascade');
+
             $table->softDeletes();
             $table->timestamps();
         });
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('comprovantes');
+        Schema::dropIfExists('turmas');
     }
 };
