@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Aluno;
+use App\Models\Turma;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -13,11 +15,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        Aluno::create([
+            'nome'=>'Carol',
+            'cpf'=>'12345678900',
+            'email'=>'carol@gmail.com',
+            'senha'=>'12345678',
+            'turma_id' => 1,
+            'curso_id' => 1,
+        ]);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        Turma::create([
+            'ano' => 2005,
+            'curso_id' => 1,
         ]);
     }
 }

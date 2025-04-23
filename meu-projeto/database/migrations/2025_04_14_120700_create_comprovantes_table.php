@@ -16,8 +16,8 @@ return new class extends Migration
             $table->float('horas');
             $table->string('atividade');
 
-            $table->foreignId('categoria_id')->constrained()->onDelete('cascade');
-            $table->foreignId('aluno_id')->constrained()->onDelete('cascade');
+            $table->foreignId('categoria_id')->constrained('categorias')->onDelete('cascade');
+            $table->foreignId('aluno_id')->constrained('alunos')->onDelete('cascade');
 
             $table->softDeletes();
             $table->timestamps();

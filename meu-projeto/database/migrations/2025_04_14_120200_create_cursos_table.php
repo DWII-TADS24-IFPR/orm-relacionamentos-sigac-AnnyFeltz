@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('cursos', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->string('sigla');
+            $table->string('sigla')->unique();
             $table->float('total_horas');
 
-            $table->foreignId('nivel_id')->constrained()->onDelete('cascade');
+            $table->foreignId('nivel_id')->constrained('nivels')->onDelete('cascade');
 
             $table->softDeletes();
             $table->timestamps();

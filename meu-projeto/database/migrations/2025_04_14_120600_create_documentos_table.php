@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('comentario');
             $table->float('horas_out');
 
-            $table->foreignId('categoria_id')->constrained()->onDelete('cascade');
+            $table->foreignId('categoria_id')->constrained('categorias')->onDelete('cascade');
 
             $table->softDeletes();
             $table->timestamps();

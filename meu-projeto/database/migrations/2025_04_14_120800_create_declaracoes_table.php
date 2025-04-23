@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('hash');
             $table->date('data');
 
-            $table->foreignId('aluno_id')->constrained()->onDelete('cascade');
-            $table->foreignId('comprovante_id')->constrained()->onDelete('cascade');
+            $table->foreignId('aluno_id')->constrained('alunos')->onDelete('cascade');
+            $table->foreignId('comprovante_id')->constrained('comprovantes')->onDelete('cascade');
 
             $table->softDeletes();
             $table->timestamps();
