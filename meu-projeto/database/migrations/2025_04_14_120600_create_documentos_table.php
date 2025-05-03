@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('url');
             $table->string('descricao');
-            $table->float('horas_in');
+            $table->decimal('horas_in', 5, 2);
             $table->string('status');
-            $table->string('comentario');
-            $table->float('horas_out');
+            $table->text('comentario');
+            $table->decimal('horas_out', 5, 2);
 
             $table->foreignId('categoria_id')->constrained('categorias')->onDelete('cascade');
 

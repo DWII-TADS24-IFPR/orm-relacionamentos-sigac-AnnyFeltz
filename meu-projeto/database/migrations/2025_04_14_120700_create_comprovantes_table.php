@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('comprovantes', function (Blueprint $table) {
             $table->id();
-            $table->float('horas');
+            $table->decimal('horas', 5, 2);
             $table->string('atividade');
 
             $table->foreignId('categoria_id')->constrained('categorias')->onDelete('cascade');

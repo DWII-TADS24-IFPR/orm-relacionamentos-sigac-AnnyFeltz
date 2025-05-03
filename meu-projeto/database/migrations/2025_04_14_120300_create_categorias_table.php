@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('categorias', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
-            $table->float('max_horas');
+            $table->string('nome')->unique();
+            $table->decimal('max_horas', 5, 2);
 
             $table->foreignId('curso_id')->constrained('cursos')->onDelete('cascade');
 

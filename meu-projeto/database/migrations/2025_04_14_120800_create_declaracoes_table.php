@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('declaracoes', function (Blueprint $table) {
             $table->id();
-            $table->string('hash');
+            $table->string('hash')->unique();
             $table->date('data');
 
             $table->foreignId('aluno_id')->constrained('alunos')->onDelete('cascade');

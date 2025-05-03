@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('cursos', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
+            $table->string('nome')->unique();
             $table->string('sigla')->unique();
-            $table->float('total_horas');
+            $table->decimal('total_horas', 5, 2);
 
             $table->foreignId('nivel_id')->constrained('nivels')->onDelete('cascade');
 
